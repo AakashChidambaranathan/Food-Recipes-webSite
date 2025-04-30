@@ -1,7 +1,18 @@
-const express = require("express")
-const { getRecipes } = require("../controller/recipe")
-const router = express.Router()
+const express = require('express');
+const router = express.Router();
+const {
+    getRecipes,
+    getRecipe,
+    addRecipe,
+    editRecipe,
+    deleteRecipe
+} = require('../controller/recipe');
 
-router.get("/",getRecipes)
+// Routes
+router.get('/', getRecipes);         // Get all recipes
+router.get('/:id', getRecipe);       // Get a recipe by ID
+router.post('/', addRecipe);         // Add a new recipe
+router.put('/:id', editRecipe);      // Edit a recipe by ID
+router.delete('/:id', deleteRecipe); // Delete a recipe by ID
 
-module.exports=router
+module.exports = router;
